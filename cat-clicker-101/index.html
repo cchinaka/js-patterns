@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-3 cat-sec">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Available Cats</div>
+                        <ul class="cat-lister list-group">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9 cat-sec">
+                <div id="cat-row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading cat-name"></div>
+                        <div class="panel-body">
+                            <a data-cat-id="" id="imageAnchor" href="#"><img id="catImg" class="img-height" src=""/></a><br/>
+                            No of clicks: <span id="catClick" class="cat-click"></span>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="app-refactor-101.js"></script>
+<script type="text/javascript">
+    $(function () {
+        appCtrl.init();
+    });
+</script>
+</body>
+</html>
