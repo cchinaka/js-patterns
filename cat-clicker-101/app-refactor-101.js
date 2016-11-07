@@ -2,13 +2,14 @@
  * Created by USER12 on 11/6/2016.
  */
 
-
 var appCtrl = {
     currentCat: null,
     init: function () {
+        this.currentCat = this.getCats()[0];
         listView.init();
         detailView.init();
-        detailView.displayCat(this.getCats()[0]);
+        detailView.displayCat(this.currentCat);
+        adminView.init();
     },
     getCats: function () {
         return model.findCats();
@@ -22,7 +23,7 @@ var appCtrl = {
     displayCat: function (event) {
         event.preventDefault();
         var catId = $(event.currentTarget).data("cat-id");
-        detailView.displayCat(appCtrl.findCurrentCatById(catId));
+        appCtrl.refreshViews(appCtrl.findCurrentCatById(catId));
     },
     addClickBehaviourToLi: function (catLi) {
         catLi.find(".cat-click-anch").click(appCtrl.displayCat);
@@ -31,7 +32,16 @@ var appCtrl = {
         event.preventDefault();
         var cat = appCtrl.findCurrentCatById($(event.currentTarget).data("cat-id"));
         ++cat.clickCount;
+        appCtrl.refreshViews(cat);
+    },
+    saveCat: function (cat) {
+        model.saveCat(cat);
+        appCtrl.refreshViews(cat);
+    },
+    refreshViews: function(cat){
         detailView.displayCat(cat);
+        adminView.init();
+        listView.init();
     }
 };
 
@@ -56,9 +66,43 @@ var listView = {
         return catList;
     },
     render: function (catList) {
+        $("ul.cat-lister li").remove();
         catList.forEach(function (catLi) {
             $("ul.cat-lister").append(catLi);
         });
+    }
+};
+
+var adminView = {
+    init: function () {
+        var self = this;
+        $("#adminForm input").val("");
+        $("#adminPanel").addClass("hidden");
+        $("#adminButton").removeClass("hidden").click(this.displayAdminForm);
+        $("#saveButton").click(function (event) {
+            event.preventDefault();
+            appCtrl.saveCat(self.getCatData());
+        });
+
+        this.setCatData(appCtrl.currentCat);
+    },
+    displayAdminForm: function (event) {
+        $("#adminPanel").removeClass("hidden");
+        $(event.currentTarget).addClass("hidden");
+    },
+    getCatData: function () {
+        return {
+            id: $("#catId").val(),
+            name: $("#catName").val(),
+            url: $("#imgUrl").val(),
+            clickCount: $("#clickCounts").val()
+        };
+    },
+    setCatData: function(cat){
+        $("#catId").val(cat.id);
+        $("#catName").val(cat.name);
+        $("#imgUrl").val(cat.url);
+        $("#clickCounts").val(cat.clickCount);
     }
 };
 
@@ -99,6 +143,17 @@ var model = {
     },
     findCats: function () {
         return this.cats;
+    },
+    saveCat: function (cat) {
+        var currentCat = this.findCatById(cat.id);
+        if (currentCat) {
+            for (var prop in currentCat) {
+                currentCat[prop] = cat[prop];
+            }
+        } else {
+            this.cats.push(cat);
+        }
+        return cat;
     },
     cats: [
         {
