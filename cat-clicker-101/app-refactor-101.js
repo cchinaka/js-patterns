@@ -144,7 +144,7 @@ var detailView = {
 
 var model = {
     init: function () {
-        //does nothing for now...
+        console.log("initializing model...");
     },
     findCatById: function (catId) {
         var cats = this.cats.filter(function (cat) {
