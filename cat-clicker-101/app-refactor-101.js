@@ -158,6 +158,7 @@ var model = {
     saveCat: function (cat) {
         var currentCat = this.findCatById(cat.id);
         if (currentCat) {
+            //FIXME there has to be a better way to copy content of one object to another...
             for (var prop in currentCat) {
                 currentCat[prop] = cat[prop];
             }
