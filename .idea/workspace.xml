@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="176e9e49-00c7-4542-9537-1ca84f7d21cd" name="Default" comment="update on click refactor">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="176e9e49-00c7-4542-9537-1ca84f7d21cd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js" afterPath="$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cat-clicker-101/index.html" afterPath="$PROJECT_DIR$/cat-clicker-101/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ud989-cat-clicker-andy/app.js" afterPath="$PROJECT_DIR$/ud989-cat-clicker-andy/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ud989-retain/js/retain.js" afterPath="$PROJECT_DIR$/ud989-retain/js/retain.js" />
     </list>
     <ignored path="js-patterns.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -304,6 +299,13 @@
       <option name="number" value="Default" />
       <updated>1478349328441</updated>
     </task>
+    <task id="LOCAL-00001" summary="update on click refactor">
+      <created>1478506981642</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1478506981642</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
