@@ -56,7 +56,7 @@ var appCtrl = {
             event.preventDefault();
             var cat = appCtrl.cats[$(event.currentTarget).data("cat-id")];
             appCtrl.incrementClicks(cat);
-            appCtrl.displayCat(cat);
+            appCtrl.render(cat);
         });
     },
     createLiTemplate: function (cat) {

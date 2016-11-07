@@ -5,11 +5,14 @@
 var appCtrl = {
     currentCat: null,
     init: function () {
-        this.currentCat = this.getCats()[0];
+        model.init();
+        this.currentCat = this.getDefaultCat();
         listView.init();
         detailView.init();
-        detailView.displayCat(this.currentCat);
         adminView.init();
+    },
+    getDefaultCat: function(){
+        return this.getCats()[0];
     },
     getCats: function () {
         return model.findCats();
@@ -25,8 +28,12 @@ var appCtrl = {
         var catId = $(event.currentTarget).data("cat-id");
         appCtrl.refreshViews(appCtrl.findCurrentCatById(catId));
     },
+    saveCat: function (cat) {
+        model.saveCat(cat);
+        appCtrl.refreshViews(cat);
+    },
     addClickBehaviourToLi: function (catLi) {
-        catLi.find(".cat-click-anch").click(appCtrl.displayCat);
+        catLi.find(".cat-click-anch").click(appCtrl.render);
     },
     incrementClicks: function (event) {
         event.preventDefault();
@@ -34,14 +41,10 @@ var appCtrl = {
         ++cat.clickCount;
         appCtrl.refreshViews(cat);
     },
-    saveCat: function (cat) {
-        model.saveCat(cat);
-        appCtrl.refreshViews(cat);
-    },
     refreshViews: function(cat){
-        detailView.displayCat(cat);
         adminView.init();
         listView.init();
+        detailView.render(cat);
     }
 };
 
@@ -78,15 +81,21 @@ var adminView = {
         var self = this;
         $("#adminForm input").val("");
         $("#adminPanel").addClass("hidden");
-        $("#adminButton").removeClass("hidden").click(this.displayAdminForm);
+        $("#adminButton").removeClass("hidden").click(this.render);
         $("#saveButton").click(function (event) {
             event.preventDefault();
             appCtrl.saveCat(self.getCatData());
         });
 
+        $("#cancelButton").click(function(){
+            $("#adminButton").removeClass("hidden")
+            $("#adminPanel").addClass("hidden");
+            adminView.setCatData(appCtrl.currentCat);
+        });
+
         this.setCatData(appCtrl.currentCat);
     },
-    displayAdminForm: function (event) {
+    render: function (event) {
         $("#adminPanel").removeClass("hidden");
         $(event.currentTarget).addClass("hidden");
     },
@@ -122,8 +131,10 @@ var detailView = {
         this.controls.img = $("#catImg");
         this.controls.clicks = $("#catClick");
 
+        detailView.render(appCtrl.currentCat);
+
     },
-    displayCat: function (cat) {
+    render: function (cat) {
         this.controls.name.html(cat.name);
         this.controls.anchor.data("cat-id", cat.id);
         this.controls.img.prop("src", cat.url);
