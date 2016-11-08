@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="176e9e49-00c7-4542-9537-1ca84f7d21cd" name="Default" comment="" />
+    <list default="true" id="176e9e49-00c7-4542-9537-1ca84f7d21cd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js" afterPath="$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js" />
+    </list>
     <ignored path="js-patterns.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +61,8 @@
       <file leaf-file-name="app-refactor-101.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7027933">
-              <caret line="160" column="92" selection-start-line="160" selection-start-column="92" selection-end-line="160" selection-end-column="92" />
+            <state vertical-scroll-proportion="0.677095">
+              <caret line="191" column="132" selection-start-line="191" selection-start-column="132" selection-end-line="191" selection-end-column="132" />
               <folding />
             </state>
           </provider>
@@ -192,7 +195,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -333,7 +336,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478508984036</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update on click refactor">
+      <created>1478509202615</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1478509202615</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -529,8 +538,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cat-clicker-101/app-refactor-101.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7027933">
-          <caret line="160" column="92" selection-start-line="160" selection-start-column="92" selection-end-line="160" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.677095">
+          <caret line="191" column="132" selection-start-line="191" selection-start-column="132" selection-end-line="191" selection-end-column="132" />
           <folding />
         </state>
       </provider>
