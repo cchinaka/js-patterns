@@ -7,7 +7,6 @@
 # No temp directory
 _data
 
-
-ud989-cat-clicker-andy/
-ud989-retain/
+ud989-*/
+frontend-*/
 */bower_components/
